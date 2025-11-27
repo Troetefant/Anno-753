@@ -8,5 +8,5 @@ Base Idea:
 ---
 
 Autoren:
-Benedikt Meier
-Tim Luca Siegfried Weiberg
+- Benedikt Meier
+- Tim Luca Weiberg
