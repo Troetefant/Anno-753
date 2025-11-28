@@ -25,6 +25,7 @@ public class BaseP extends JFrame {
   private JButton bSteinbruch = new JButton();
   private JButton bKaserne = new JButton();
   private JButton bAusbilden = new JButton();
+  private JButton bStart = new JButton();
   // end attributes
   //Globale Variablen
   int Runden;
@@ -140,6 +141,16 @@ public class BaseP extends JFrame {
       }
     });
     cp.add(bAusbilden);
+    bStart.setBounds(400, 200, 248, 160);
+    bStart.setFont(new Font("Dialog", Font.BOLD, 11));
+    bStart.setText("Start");
+    bStart.setMargin(new Insets(2, 2, 2, 2));
+    bStart.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bStart_ActionPerformed(evt);
+      }
+    });
+    cp.add(bStart);
     // end components
     
     setVisible(true);
@@ -180,6 +191,11 @@ public class BaseP extends JFrame {
     // TODO add your code here
     
   } // end of bAusbilden_ActionPerformed
+
+  public void bStart_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bStart.setVisible(false);
+  } // end of bStart_ActionPerformed
 
   // end methods
 } // end of class BaseP
