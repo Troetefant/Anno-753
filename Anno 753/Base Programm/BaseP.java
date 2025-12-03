@@ -2,7 +2,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
-
+//importe(plugins)
+  
+  import java.util.Random;
+  
+  //importe end
 /**
  *
  * Beschreibung
@@ -13,12 +17,25 @@ import javax.swing.event.*;
 
 public class BaseP extends JFrame {
   // start attributes
-  private JLabel jLabelA1 = new JLabel();
-    private ImageIcon jLabelA1Icon = new ImageIcon(getClass().getResource("images/tile_empty.png"));
-  private JLabel jLabelB1 = new JLabel();
-    private ImageIcon jLabelB1Icon = new ImageIcon(getClass().getResource("images/tile_empty.png"));
-  private JLabel jLabelC1 = new JLabel();
-    private ImageIcon jLabelC1Icon = new ImageIcon(getClass().getResource("images/tile_empty.png"));
+  
+  
+  
+  //tiles
+  
+  int zeilen = 12;
+  int spalten = 27;
+  int[][] tile_score = new int[zeilen][spalten];
+  
+  
+  ImageIcon tile_empty = new ImageIcon("images/utility/tile_empty.png");
+  
+  //tiles end
+  
+  private JLabel A1 = new JLabel(tile_empty);
+  private JLabel B1 = new JLabel(tile_empty);
+  private JLabel C1 = new JLabel(tile_empty);
+  private JButton bPlay = new JButton();
+  
   // end attributes
   
   public BaseP() { 
@@ -38,21 +55,28 @@ public class BaseP extends JFrame {
     cp.setLayout(null);
     // start components
     
-    jLabelA1.setBounds(0, 0, 40, 40);
-    jLabelA1.setFont(new Font("Dialog", Font.BOLD, 11));
-    jLabelA1.setText("Text");
-    jLabelA1.setIcon(jLabelA1Icon);
-    cp.add(jLabelA1);
-    jLabelB1.setBounds(0, 40, 40, 40);
-    jLabelB1.setFont(new Font("Dialog", Font.BOLD, 11));
-    jLabelB1.setText("Text");
-    jLabelB1.setIcon(jLabelB1Icon);
-    cp.add(jLabelB1);
-    jLabelC1.setBounds(0, 88, 40, 40);
-    jLabelC1.setFont(new Font("Dialog", Font.BOLD, 11));
-    jLabelC1.setText("Text");
-    jLabelC1.setIcon(jLabelC1Icon);
-    cp.add(jLabelC1);
+    A1.setBounds(0, 0, 40, 40);
+    A1.setFont(new Font("Dialog", Font.BOLD, 11));
+    A1.setText("Text");
+    cp.add(A1);
+    B1.setBounds(0, 40, 40, 40);
+    B1.setFont(new Font("Dialog", Font.BOLD, 11));
+    B1.setText("Text");
+    cp.add(B1);
+    C1.setBounds(0, 80, 40, 40);
+    C1.setFont(new Font("Dialog", Font.BOLD, 11));
+    C1.setText("Text");
+    cp.add(C1);
+    bPlay.setBounds(432, 576, 185, 57);
+    bPlay.setFont(new Font("Dialog", Font.BOLD, 11));
+    bPlay.setText("Spiel Starten!");
+    bPlay.setMargin(new Insets(2, 2, 2, 2));
+    bPlay.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bPlay_ActionPerformed(evt);
+      }
+    });
+    cp.add(bPlay);
     // end components
     
     setVisible(true);
@@ -64,5 +88,18 @@ public class BaseP extends JFrame {
     new BaseP();
   } // end of main
   
+  public void bPlay_ActionPerformed(ActionEvent evt) {
+  
+    //randomizer für zeilen und spalten
+    Random random = new Random();
+    for (int i = 0; i < zeilen; i++) {
+      for (int j = 0; j < spalten; j++) {
+         tile_score[i][j] = random.nextInt(5);
+      } // end of for
+    } // end of for
+    //randomizer für zeilen und spalten ende
+    
+  } // end of bPlay_ActionPerformed
+
   // end methods
 } // end of class BaseP
