@@ -1,6 +1,6 @@
 object FGUIForm: TFGUIForm
-  Left = 810
-  Top = 261
+  Left = 822
+  Top = 437
   BorderIcons = [biSystemMenu]
   Caption = 'BaseP'
   ClientHeight = 720
@@ -87,7 +87,7 @@ object FGUIForm: TFGUIForm
   object jLabelC1: TJLabel
     Tag = 1
     Left = 0
-    Top = 88
+    Top = 80
     Width = 40
     Height = 40
     Hint = 'jLabel1'
