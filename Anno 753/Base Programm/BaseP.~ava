@@ -14,11 +14,11 @@ import javax.swing.event.*;
 public class BaseP extends JFrame {
   // start attributes
   private JLabel jLabelA1 = new JLabel();
-    private ImageIcon jLabelA1Icon = new ImageIcon(getClass().getResource("images/tile_empty.png"));
+    private ImageIcon jLabelA1Icon = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
   private JLabel jLabelB1 = new JLabel();
-    private ImageIcon jLabelB1Icon = new ImageIcon(getClass().getResource("images/tile_empty.png"));
+    private ImageIcon jLabelB1Icon = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
   private JLabel jLabelC1 = new JLabel();
-    private ImageIcon jLabelC1Icon = new ImageIcon(getClass().getResource("images/tile_empty.png"));
+    private ImageIcon jLabelC1Icon = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
   // end attributes
   
   public BaseP() { 
@@ -48,7 +48,7 @@ public class BaseP extends JFrame {
     jLabelB1.setText("Text");
     jLabelB1.setIcon(jLabelB1Icon);
     cp.add(jLabelB1);
-    jLabelC1.setBounds(0, 88, 40, 40);
+    jLabelC1.setBounds(0, 80, 40, 40);
     jLabelC1.setFont(new Font("Dialog", Font.BOLD, 11));
     jLabelC1.setText("Text");
     jLabelC1.setIcon(jLabelC1Icon);
