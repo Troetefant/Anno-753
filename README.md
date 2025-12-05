@@ -12,4 +12,10 @@ Autoren:
 - Benedikt Meier
 - Tim Luca Weiberg
 
-----
+
+---
+
+
+Funktionen:
+
+- "Spiel Starten" Button: Erstellt eine Random Map
