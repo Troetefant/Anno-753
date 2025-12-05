@@ -27,7 +27,7 @@ public class BaseP extends JFrame {
   int[][] tile_score = new int[zeilen][spalten];
   
   
-  ImageIcon tile_empty = new ImageIcon("images/utility/tile_empty.png");
+  ImageIcon tile_empty = new ImageIcon("images/utility/tile_empty");
   
   //tiles end
   
