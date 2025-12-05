@@ -8,11 +8,8 @@ Base Idea:
 ---
 
 Autoren:
-<<<<<<< HEAD
+
 - Benedikt Meier
 - Tim Luca Weiberg
-=======
-Autoren:
--Benedikt Meier
--Tim Luca Siegfried Weiberg
 
+----
