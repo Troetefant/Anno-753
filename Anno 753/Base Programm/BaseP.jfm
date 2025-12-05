@@ -1,6 +1,6 @@
 object FGUIForm: TFGUIForm
-  Left = 735
-  Top = 398
+  Left = 1256
+  Top = 269
   BorderIcons = [biSystemMenu]
   Caption = 'BaseP'
   ClientHeight = 720
@@ -95,6 +95,7 @@ object FGUIForm: TFGUIForm
     Focusable = True
     Opaque = True
     Text = 'Text'
+    Icon = 'images/tile_empty.png'
     HorizontalAlignment = Left
     VerticalAlignment = CENTER
     HorizontalTextPosition = Right

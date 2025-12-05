@@ -27,16 +27,17 @@ public class BaseP extends JFrame {
   int[][] tile_score = new int[zeilen][spalten];
   
   
-  ImageIcon tile_empty = new ImageIcon("images/utility/tile_empty");
+  private ImageIcon tile_barrack = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
   
   //tiles end
   
-  private JLabel A1 = new JLabel(tile_empty);
-  private JLabel B1 = new JLabel(tile_empty);
-  private JLabel C1 = new JLabel(tile_empty);
+  private JLabel A1 = new JLabel(tile_barrack);
+  private JLabel B1 = new JLabel(tile_barrack);
+  private JLabel C1 = new JLabel(tile_barrack);
   private JButton bPlay = new JButton();
   
-  private JLabel A2 = new JLabel(tile_empty);
+  private JLabel A2 = new JLabel();
+  private ImageIcon A2Icon = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
   // end attributes
   
   public BaseP() { 
@@ -81,6 +82,7 @@ public class BaseP extends JFrame {
     A2.setBounds(40, 0, 40, 40);
     A2.setFont(new Font("Dialog", Font.BOLD, 11));
     A2.setText("Text");
+    A2.setIcon(A2Icon);
     cp.add(A2);
     // end components
     
@@ -102,6 +104,7 @@ public class BaseP extends JFrame {
          tile_score[i][j] = random.nextInt(5);
       } // end of for
     } // end of for
+    ImageIcon A2Icon = new ImageIcon(getClass().getResource("images/utility/tile_barrack.png"));
     //randomizer für zeilen und spalten ende
     
   } // end of bPlay_ActionPerformed
