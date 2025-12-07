@@ -25,19 +25,26 @@ public class BaseP extends JFrame {
   int zeilen = 12;
   int spalten = 27;
   int[][] tile_score = new int[zeilen][spalten];
-  
-  
-  private ImageIcon tile_barrack = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
-  
   //tiles end
+  //Icons
+  private Icon tile_empty = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
+  private Icon tile_barrack = new ImageIcon(getClass().getResource("images/utility/tile_barrack.png"));
+  private Icon tile_forest = new ImageIcon(getClass().getResource("images/utility/tile_forest.png"));
+  private Icon tile_wheat = new ImageIcon(getClass().getResource("images/utility/tile_wheat.png"));
+  private Icon tile_mountain = new ImageIcon(getClass().getResource("images/utility/tile_mountain.png"));
+  private Icon tile_farmland = new ImageIcon(getClass().getResource("images/utility/tile_farmland.png"));
+  private Icon tree = new ImageIcon(getClass().getResource("images/utility/tree.png"));
+  private Icon wheat = new ImageIcon(getClass().getResource("images/utility/wheat.png"));
+  private Icon coin = new ImageIcon(getClass().getResource("images/utility/coin.png"));
+  private Icon stone = new ImageIcon(getClass().getResource("images/utility/stone.png"));
+  //Icons end
   
-  private JLabel A1 = new JLabel(tile_barrack);
-  private JLabel B1 = new JLabel(tile_barrack);
-  private JLabel C1 = new JLabel(tile_barrack);
+  private JLabel A1 = new JLabel(tile_empty,SwingConstants.LEFT);
+  private JLabel B1 = new JLabel(tile_empty,SwingConstants.LEFT);
+  private JLabel C1 = new JLabel(tile_empty,SwingConstants.LEFT);
   private JButton bPlay = new JButton();
   
-  private JLabel A2 = new JLabel();
-  private ImageIcon A2Icon = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
+  
   // end attributes
   
   public BaseP() { 
@@ -79,11 +86,6 @@ public class BaseP extends JFrame {
       }
     });
     cp.add(bPlay);
-    A2.setBounds(40, 0, 40, 40);
-    A2.setFont(new Font("Dialog", Font.BOLD, 11));
-    A2.setText("Text");
-    A2.setIcon(A2Icon);
-    cp.add(A2);
     // end components
     
     setVisible(true);
@@ -104,7 +106,8 @@ public class BaseP extends JFrame {
          tile_score[i][j] = random.nextInt(5);
       } // end of for
     } // end of for
-    ImageIcon A2Icon = new ImageIcon(getClass().getResource("images/utility/tile_barrack.png"));
+    A1.setIcon(tile_barrack);
+    
     //randomizer für zeilen und spalten ende
     
   } // end of bPlay_ActionPerformed
