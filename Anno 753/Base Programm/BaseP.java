@@ -38,6 +38,8 @@ public class BaseP extends JFrame {
   private Icon coin = new ImageIcon(getClass().getResource("images/utility/coin.png"));
   private Icon stone = new ImageIcon(getClass().getResource("images/utility/stone.png"));
   //Icons end
+  // Intruduction Tiles
+     //JLabel[] A = new JLabel[27];
   
   private JLabel A1 = new JLabel(tile_empty,SwingConstants.LEFT);
   private JLabel B1 = new JLabel(tile_empty,SwingConstants.LEFT);
@@ -107,6 +109,9 @@ public class BaseP extends JFrame {
       } // end of for
     } // end of for
     A1.setIcon(tile_barrack);
+    for (int i =0;i < zeilen;i++ ) {
+      // Aktuelle Baustelle Bene A[i].setIcon(tile_wheat);
+    } // end of for
     
     //randomizer für zeilen und spalten ende
     
