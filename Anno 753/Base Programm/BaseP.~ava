@@ -17,8 +17,9 @@ import javax.swing.event.*;
 
 public class BaseP extends JFrame {
   // start attributes
-  
-  
+  // Hilfsvariablen
+  int i = 0;
+  int XFeld = 0;
   
   //tiles
   
@@ -39,11 +40,9 @@ public class BaseP extends JFrame {
   private Icon stone = new ImageIcon(getClass().getResource("images/utility/stone.png"));
   //Icons end
   // Intruduction Tiles
-     //JLabel[] A = new JLabel[27];
-  
-  private JLabel A1 = new JLabel(tile_empty,SwingConstants.LEFT);
-  private JLabel B1 = new JLabel(tile_empty,SwingConstants.LEFT);
-  private JLabel C1 = new JLabel(tile_empty,SwingConstants.LEFT);
+  JLabel[] A = new JLabel[324];
+
+
   private JButton bPlay = new JButton();
   
   
@@ -65,19 +64,17 @@ public class BaseP extends JFrame {
     Container cp = getContentPane();
     cp.setLayout(null);
     // start components
+    for (i = 0;i < 12 ;i++) {
+      for (XFeld = 0; XFeld < 27;XFeld++ ) {
+        A[i*XFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
+        A[i*XFeld].setBounds(40*XFeld,i*40 ,40, 40);
+        cp.add(A[i*XFeld]);
+      } // end of for
+      
+      
+    } // end of for
     
-    A1.setBounds(0, 0, 40, 40);
-    A1.setFont(new Font("Dialog", Font.BOLD, 11));
-    A1.setText("Text");
-    cp.add(A1);
-    B1.setBounds(0, 40, 40, 40);
-    B1.setFont(new Font("Dialog", Font.BOLD, 11));
-    B1.setText("Text");
-    cp.add(B1);
-    C1.setBounds(0, 80, 40, 40);
-    C1.setFont(new Font("Dialog", Font.BOLD, 11));
-    C1.setText("Text");
-    cp.add(C1);
+    
     bPlay.setBounds(432, 576, 185, 57);
     bPlay.setFont(new Font("Dialog", Font.BOLD, 11));
     bPlay.setText("Spiel Starten!");
@@ -103,19 +100,31 @@ public class BaseP extends JFrame {
   
     //randomizer für zeilen und spalten
     Random random = new Random();
-    for (int i = 0; i < zeilen; i++) {
-      for (int j = 0; j < spalten; j++) {
-         tile_score[i][j] = random.nextInt(5);
-      } // end of for
-    } // end of for
-    A1.setIcon(tile_barrack);
-    for (int i =0;i < zeilen;i++ ) {
-      // Aktuelle Baustelle Bene A[i].setIcon(tile_wheat);
+    
+    i = 0;
+    for (i = 0;i <= 324 ;i++ ) {
+      int Seed = (int)(Math.random()*5);
+      if (Seed == 0) {
+        A[i].setIcon(tile_mountain);
+      } // end of if
+      if (Seed == 1) {
+        A[i].setIcon(tile_mountain);
+      } // end of if
+      if (Seed == 2) {
+        A[i].setIcon(tile_mountain);
+      } // end of if
+      if (Seed == 3) {
+        A[i].setIcon(tile_mountain);
+      } // end of if
+      if (Seed == 4) {
+        A[i].setIcon(tile_mountain);
+      } // end of if
     } // end of for
     
     //randomizer für zeilen und spalten ende
-    
+    bPlay.setVisible(false);
   } // end of bPlay_ActionPerformed
 
   // end methods
+  
 } // end of class BaseP
