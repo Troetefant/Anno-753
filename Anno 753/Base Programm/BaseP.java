@@ -38,7 +38,7 @@ public class BaseP extends JFrame {
   private Icon wheat = new ImageIcon(getClass().getResource("images/utility/wheat.png"));
   private Icon coin = new ImageIcon(getClass().getResource("images/utility/coin.png"));
   private Icon stone = new ImageIcon(getClass().getResource("images/utility/stone.png"));
-  private Icon tile_troop = new ImageIcon(getClass().getResource("images/utility/tile_troop.png"));
+  private Icon tile_troop = new ImageIcon(getClass().getResource("images/utility/troop_overlay.png"));
   private Icon tile_town = new ImageIcon(getClass().getResource("images/utility/tile_town.png"));
   private Icon troop = new ImageIcon(getClass().getResource("images/utility/troop.png"));
   //Icons end

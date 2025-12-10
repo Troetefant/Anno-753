@@ -18,4 +18,7 @@ Autoren:
 
 Funktionen:
 
-- "Spiel Starten" Button: Erstellt eine Random Map
+- "Spiel Starten" Button: Erstellt eine Random Map (Zahlen von 1-324 ein Random wert von 1-8 geben --> gibt die Textur des tiles an.)
+- Danach Spieleinleitung von Romulus: 
+	- Erstelle die Stadtmitte --> Klick auf ein tile = neue Stadtmitte
+	- Dann gibt Romulus Einführung in das Spiel: Baue erstes Feld, Holzfäller, Kaserne...
