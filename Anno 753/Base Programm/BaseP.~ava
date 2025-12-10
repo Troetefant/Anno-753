@@ -20,12 +20,12 @@ public class BaseP extends JFrame {
   // Hilfsvariablen
   int i = 0;
   int XFeld = 0;
-  
+  int YFeld = 0;
   //tiles
   
-  int zeilen = 12;
+  int zeilen = 27;
   int spalten = 27;
-  int[][] tile_score = new int[zeilen][spalten];
+  int[][] tile_score = new int[spalten][zeilen];
   //tiles end
   //Icons
   private Icon tile_empty = new ImageIcon(getClass().getResource("images/utility/tile_empty.png"));
@@ -40,8 +40,7 @@ public class BaseP extends JFrame {
   private Icon stone = new ImageIcon(getClass().getResource("images/utility/stone.png"));
   //Icons end
   // Intruduction Tiles
-  JLabel[] A = new JLabel[324];
-
+  JLabel[][] A = new JLabel[zeilen][spalten];
 
   private JButton bPlay = new JButton();
   
@@ -64,17 +63,20 @@ public class BaseP extends JFrame {
     Container cp = getContentPane();
     cp.setLayout(null);
     // start components
-    for (i = 0;i < 12 ;i++) {
-      for (XFeld = 0; XFeld < 27;XFeld++ ) {
-        A[i*XFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
-        A[i*XFeld].setBounds(40*XFeld,i*40 ,40, 40);
-        cp.add(A[i*XFeld]);
-      } // end of for
+    for (i = 0;i < 324 ;i++) {
+      A[XFeld][YFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
+      A[XFeld][YFeld].setBounds(40*XFeld,YFeld*40 ,40, 40);
+      cp.add(A[XFeld][YFeld]);
+      XFeld++;
+      if (XFeld >= (spalten)) {
+        XFeld = 0;
+        YFeld++;
+      } // end of if
       
       
     } // end of for
-    
-    
+    YFeld = 0;
+    XFeld = 0;
     bPlay.setBounds(432, 576, 185, 57);
     bPlay.setFont(new Font("Dialog", Font.BOLD, 11));
     bPlay.setText("Spiel Starten!");
@@ -97,32 +99,35 @@ public class BaseP extends JFrame {
   } // end of main
   
   public void bPlay_ActionPerformed(ActionEvent evt) {
-  
+    bPlay.setVisible(false);
     //randomizer für zeilen und spalten
     Random random = new Random();
     
-    i = 0;
     for (i = 0;i <= 324 ;i++ ) {
-      int Seed = (int)(Math.random()*5);
+      int Seed = (int)(Math.random()*8);
       if (Seed == 0) {
-        A[i].setIcon(tile_mountain);
+        A[XFeld][YFeld].setIcon(tile_forest);
+        tile_score[XFeld][YFeld] = 0;
       } // end of if
       if (Seed == 1) {
-        A[i].setIcon(tile_mountain);
+        A[XFeld][YFeld].setIcon(tile_mountain);
+        tile_score[XFeld][YFeld] = 1;
       } // end of if
-      if (Seed == 2) {
-        A[i].setIcon(tile_mountain);
+      if (Seed >= 2) {
+        A[XFeld][YFeld].setIcon(tile_empty);
+        tile_score[XFeld][YFeld] = 2;
       } // end of if
-      if (Seed == 3) {
-        A[i].setIcon(tile_mountain);
-      } // end of if
-      if (Seed == 4) {
-        A[i].setIcon(tile_mountain);
+      
+      //Koorditnaten Festlegen
+      XFeld++;
+      if (XFeld >= (spalten)) {
+        XFeld = 0;
+        YFeld++;
       } // end of if
     } // end of for
-    
+    XFeld = 0;
+    YFeld = 0;
     //randomizer für zeilen und spalten ende
-    bPlay.setVisible(false);
   } // end of bPlay_ActionPerformed
 
   // end methods
