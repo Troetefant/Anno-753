@@ -23,9 +23,15 @@ public class BaseP extends JFrame {
   int YFeld = 0;
   int xcl;
   int ycl;
-  boolean clicked;
-  //tiles
   
+  //Ressourcen
+  int Gold;
+  int Stone;
+  int Wood;
+  int Wheat;
+  //Ressourcen end
+  
+  //tiles
   static final int C_ZEILEN = 12;
   static final int C_SPALTEN = 27;
   int[][] tile_score = new int[C_SPALTEN][C_ZEILEN];
@@ -51,6 +57,15 @@ public class BaseP extends JFrame {
   private JButton bPlay = new JButton();
   
   
+  private JButton bNaechsterTag = new JButton();
+  private JLabel jStone = new JLabel();
+    private ImageIcon jStoneIcon = new ImageIcon(getClass().getResource("images/stone.png"));
+  private JLabel jGold = new JLabel();
+    private ImageIcon jGoldIcon = new ImageIcon(getClass().getResource("images/coin.png"));
+  private JLabel jWheat = new JLabel();
+    private ImageIcon jWheatIcon = new ImageIcon(getClass().getResource("images/wheat.png"));
+  private JLabel jWood = new JLabel();
+    private ImageIcon jWoodIcon = new ImageIcon(getClass().getResource("images/wood.png"));
   // end attributes
   
   public BaseP() { 
@@ -83,7 +98,7 @@ public class BaseP extends JFrame {
       
     } // end of for
     
-    /*
+    /*   Funktioniert nd
     for (XFeld = 0; XFeld < C_ZEILEN; XFeld++ ) {
       for (YFeld = 0; YFeld < C_SPALTEN; YFeld++ ) {
           A[XFeld][YFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
@@ -112,6 +127,32 @@ public class BaseP extends JFrame {
         cp_MouseClicked(evt);
       }
     });
+    bNaechsterTag.setBounds(904, 544, 168, 168);
+    bNaechsterTag.setFont(new Font("Dialog", Font.BOLD, 11));
+    bNaechsterTag.setText("Nächster Tag");
+    bNaechsterTag.setMargin(new Insets(2, 2, 2, 2));
+    bNaechsterTag.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bNaechsterTag_ActionPerformed(evt);
+      }
+    });
+    cp.add(bNaechsterTag);
+    jStone.setBounds(904, 512, 88, 24);
+    jStone.setFont(new Font("Dialog", Font.BOLD, 11));
+    jStone.setIcon(jStoneIcon);
+    cp.add(jStone);
+    jGold.setBounds(904, 488, 88, 24);
+    jGold.setFont(new Font("Dialog", Font.BOLD, 11));
+    jGold.setIcon(jGoldIcon);
+    cp.add(jGold);
+    jWheat.setBounds(992, 512, 80, 24);
+    jWheat.setFont(new Font("Dialog", Font.BOLD, 11));
+    jWheat.setIcon(jWheatIcon);
+    cp.add(jWheat);
+    jWood.setBounds(992, 488, 80, 24);
+    jWood.setFont(new Font("Dialog", Font.BOLD, 11));
+    jWood.setIcon(jWoodIcon);
+    cp.add(jWood);
     // end components
     
     setVisible(true);
@@ -125,6 +166,13 @@ public class BaseP extends JFrame {
   
   public void bPlay_ActionPerformed(ActionEvent evt) {
     bPlay.setVisible(false);
+    //Startguthaben
+    Gold = 200;
+    Stone = 20;
+    Wood = 40;
+    Wheat = 50;
+    //Startguthaben end
+    Aktualisierung();
     //randomizer für zeilen und spalten
     Random random = new Random();
     
@@ -153,6 +201,7 @@ public class BaseP extends JFrame {
     XFeld = 0;
     YFeld = 0;
     //randomizer für zeilen und spalten ende
+    
   } // end of bPlay_ActionPerformed
 
   public void cp_MouseClicked(MouseEvent evt) {
@@ -161,9 +210,23 @@ public class BaseP extends JFrame {
 ;   int ycl = evt.getY()/40;
     if (xcl < 27 && ycl < 12){
       A[xcl][ycl].setIcon(tile_barrack);
-     
+      Gold = Gold-10;
+      Wheat = Wheat-5;
      } 
+    Aktualisierung();
   } // end of cp_MouseClicked
+  
+  public void Aktualisierung() {
+    jGold.setText(""+ Gold);
+    jStone.setText(""+ Stone);
+    jWood.setText(""+ Wood);
+    jWheat.setText(""+ Wheat);
+  }
+  
+  public void bNaechsterTag_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    
+  } // end of bNaechsterTag_ActionPerformed
 
   // end methods
   
