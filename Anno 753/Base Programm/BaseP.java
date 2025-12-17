@@ -21,15 +21,19 @@ public class BaseP extends JFrame {
   int i = 0;
   int XFeld = 0;
   int YFeld = 0;
-  int xcl;
-  int ycl;
-  
+  int xcl;   // X Click
+  int ycl;   // Y Click
+  int bslc; //Building selected
   //Ressourcen
   int Gold;
   int Stone;
   int Wood;
   int Wheat;
   //Ressourcen end
+  int Bcnt // Barrack Counter;
+  int Fcnt; // Farm Counter
+  int Mcnt; // Minen Counter
+  int Lcnt; //Lumberjack Counter
   
   //tiles
   static final int C_ZEILEN = 12;
@@ -209,9 +213,57 @@ public class BaseP extends JFrame {
     int xcl = evt.getX()/40;
 ;   int ycl = evt.getY()/40;
     if (xcl < 27 && ycl < 12){
-      A[xcl][ycl].setIcon(tile_barrack);
-      Gold = Gold-10;
-      Wheat = Wheat-5;
+      switch (bslc) {
+        case 0 : 
+          
+          break;
+        case  1:
+          if (Gold >= 10 && Wheat >= 5 ) {
+            A[xcl][ycl].setIcon(tile_barrack);
+            Gold = Gold-10;
+            Wheat = Wheat-5;
+            tile_score[xcl][ycl] = 3;
+            Lcnt++;
+          } else {
+            
+          } // end of if-else
+          break;
+        case 2 : 
+          if (Gold >= 10 && Wheat >= 5 ) {
+            A[xcl][ycl].setIcon(tile_barrack);
+            Gold = Gold-10;
+            Wheat = Wheat-5;
+            tile_score[xcl][ycl] = 3;
+            Lcnt++;
+          } else {
+            
+          } // end of if-else
+          break;  
+        case 3 : 
+          if (Gold >= 10 && Wheat >= 5 ) {
+            A[xcl][ycl].setIcon(tile_barrack);
+            Gold = Gold-10;
+            Wheat = Wheat-5;
+            tile_score[xcl][ycl] = 3;
+            Lcnt++;
+          } else {
+            
+          } // end of if-else
+          break;  
+        case 4 : 
+          if (Gold >= 10 && Wheat >= 5 ) {
+            A[xcl][ycl].setIcon(tile_barrack);
+            Gold = Gold-10;
+            Wheat = Wheat-5;
+            tile_score[xcl][ycl] = 3;
+            Lcnt++;
+          } else {
+            
+          } // end of if-else
+          break;
+        } // end of switch
+      
+      
      } 
     Aktualisierung();
   } // end of cp_MouseClicked

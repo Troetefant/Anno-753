@@ -21,9 +21,9 @@ public class BaseP extends JFrame {
   int i = 0;
   int XFeld = 0;
   int YFeld = 0;
-  int xcl;
-  int ycl;
-  
+  int xcl;   // X Click
+  int ycl;   // Y Click
+  int bslc; //Building selected
   //Ressourcen
   int Gold;
   int Stone;
@@ -209,9 +209,22 @@ public class BaseP extends JFrame {
     int xcl = evt.getX()/40;
 ;   int ycl = evt.getY()/40;
     if (xcl < 27 && ycl < 12){
-      A[xcl][ycl].setIcon(tile_barrack);
-      Gold = Gold-10;
-      Wheat = Wheat-5;
+      switch (bslc) {
+        case 0 : 
+          
+          break;
+        case  1: 
+          A[xcl][ycl].setIcon(tile_barrack);
+          Gold = Gold-10;
+          Wheat = Wheat-5;
+          break;
+          
+          
+        
+          
+        } // end of switch
+      
+      
      } 
     Aktualisierung();
   } // end of cp_MouseClicked
