@@ -1,6 +1,6 @@
 object FGUIForm: TFGUIForm
-  Left = 354
-  Top = 189
+  Left = 1216
+  Top = 266
   BorderIcons = [biSystemMenu]
   Caption = 'BaseP'
   ClientHeight = 720
@@ -29,6 +29,7 @@ object FGUIForm: TFGUIForm
   Background = clBtnFace
   Title = 'BaseP'
   FontSize = 11
+  mouseClicked = 'cp_MouseClicked'
   TextHeight = 15
   object bPlay: TJButton
     Tag = 4

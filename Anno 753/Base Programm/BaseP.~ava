@@ -21,6 +21,9 @@ public class BaseP extends JFrame {
   int i = 0;
   int XFeld = 0;
   int YFeld = 0;
+  int xcl;
+  int ycl;
+  boolean clicked;
   //tiles
   
   static final int C_ZEILEN = 12;
@@ -104,6 +107,11 @@ public class BaseP extends JFrame {
       }
     });
     cp.add(bPlay);
+    cp.addMouseListener(new MouseAdapter() { 
+      public void mouseClicked(MouseEvent evt) { 
+        cp_MouseClicked(evt);
+      }
+    });
     // end components
     
     setVisible(true);
@@ -146,6 +154,16 @@ public class BaseP extends JFrame {
     YFeld = 0;
     //randomizer für zeilen und spalten ende
   } // end of bPlay_ActionPerformed
+
+  public void cp_MouseClicked(MouseEvent evt) {
+    // TODO add your code here
+    int xcl = evt.getX()/40;
+;   int ycl = evt.getY()/40;
+    if (xcl < 27 && ycl < 12){
+      A[xcl][ycl].setIcon(tile_barrack);
+     
+     } 
+  } // end of cp_MouseClicked
 
   // end methods
   
