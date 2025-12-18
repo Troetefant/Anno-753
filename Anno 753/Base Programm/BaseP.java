@@ -23,14 +23,14 @@ public class BaseP extends JFrame {
   int YFeld = 0;
   int xcl;   // X Click
   int ycl;   // Y Click
-  int bslc; //Building selected
+  int bslc = 1; //Building selected Wert zu Testzwecken
   //Ressourcen
   int Gold;
   int Stone;
   int Wood;
   int Wheat;
   //Ressourcen end
-  int Bcnt // Barrack Counter;
+  int Bcnt; // Barrack Counter
   int Fcnt; // Farm Counter
   int Mcnt; // Minen Counter
   int Lcnt; //Lumberjack Counter
@@ -63,13 +63,13 @@ public class BaseP extends JFrame {
   
   private JButton bNaechsterTag = new JButton();
   private JLabel jStone = new JLabel();
-    private ImageIcon jStoneIcon = new ImageIcon(getClass().getResource("images/stone.png"));
+    private ImageIcon jStoneIcon = new ImageIcon(getClass().getResource("images/utility/stone.png"));
   private JLabel jGold = new JLabel();
-    private ImageIcon jGoldIcon = new ImageIcon(getClass().getResource("images/coin.png"));
+    private ImageIcon jGoldIcon = new ImageIcon(getClass().getResource("images/utility/coin.png"));
   private JLabel jWheat = new JLabel();
-    private ImageIcon jWheatIcon = new ImageIcon(getClass().getResource("images/wheat.png"));
+    private ImageIcon jWheatIcon = new ImageIcon(getClass().getResource("images/utility/wheat.png"));
   private JLabel jWood = new JLabel();
-    private ImageIcon jWoodIcon = new ImageIcon(getClass().getResource("images/wood.png"));
+    private ImageIcon jWoodIcon = new ImageIcon(getClass().getResource("images/utility/wood.png"));
   // end attributes
   
   public BaseP() { 
