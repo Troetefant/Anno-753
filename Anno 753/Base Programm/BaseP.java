@@ -49,14 +49,14 @@ public class BaseP extends JFrame {
   private Icon tile_wheat = new ImageIcon(getClass().getResource("images/utility/tile_wheat.png"));
   private Icon tile_mountain = new ImageIcon(getClass().getResource("images/utility/tile_mountain.png"));
   private Icon tile_farmland = new ImageIcon(getClass().getResource("images/utility/tile_farmland.png"));
-  private Icon tree = new ImageIcon(getClass().getResource("images/utility/wood.png"));
+  private Icon wood = new ImageIcon(getClass().getResource("images/utility/wood.png"));
   private Icon wheat = new ImageIcon(getClass().getResource("images/utility/wheat.png"));
   private Icon coin = new ImageIcon(getClass().getResource("images/utility/coin.png"));
   private Icon stone = new ImageIcon(getClass().getResource("images/utility/stone.png"));
   private Icon tile_troop = new ImageIcon(getClass().getResource("images/utility/troop_overlay.png"));
   private Icon tile_town = new ImageIcon(getClass().getResource("images/utility/tile_town.png"));
   private Icon troop = new ImageIcon(getClass().getResource("images/utility/troop.png"));
-  private Icon tile_lumberjack = new ImageIcon(getClass().getResource("images/utility/tile_lumberjack.png"))
+  private Icon tile_lumberjack = new ImageIcon(getClass().getResource("images/utility/tile_lumberjack.png"));
   //Icons end
   // Intruduction Tiles
   JLabel[][] A = new JLabel[C_SPALTEN][C_ZEILEN];
@@ -66,13 +66,19 @@ public class BaseP extends JFrame {
   
   private JButton bNaechsterTag = new JButton();
   private JLabel jStone = new JLabel();
-    private ImageIcon jStoneIcon = new ImageIcon(getClass().getResource("images/utility/stone.png"));
+    private Icon jStoneIcon = stone;
   private JLabel jGold = new JLabel();
-    private ImageIcon jGoldIcon = new ImageIcon(getClass().getResource("images/utility/coin.png"));
+    private Icon jGoldIcon = coin;
   private JLabel jWheat = new JLabel();
-    private ImageIcon jWheatIcon = new ImageIcon(getClass().getResource("images/utility/wheat.png"));
+    private Icon jWheatIcon = wheat;
   private JLabel jWood = new JLabel();
-    private ImageIcon jWoodIcon = new ImageIcon(getClass().getResource("images/utility/wood.png"));
+    private Icon jWoodIcon = wood;
+  private JButton bTown = new JButton();
+  private JButton bLumber = new JButton();
+  private JButton bFarm = new JButton();
+  private JButton bVillage = new JButton();
+  private JButton bMine = new JButton();
+  private JButton bBarrack = new JButton();
   // end attributes
   
   public BaseP() { 
@@ -90,6 +96,7 @@ public class BaseP extends JFrame {
     setResizable(false);
     Container cp = getContentPane();
     cp.setLayout(null);
+    setUndecorated(true);
     // start components
     
     for (i = 0;i < 324 ;i++) {
@@ -160,6 +167,72 @@ public class BaseP extends JFrame {
     jWood.setFont(new Font("Dialog", Font.BOLD, 11));
     jWood.setIcon(jWoodIcon);
     cp.add(jWood);
+    bTown.setBounds(16, 496, 64, 64);
+    bTown.setFont(new Font("Dialog", Font.BOLD, 11));
+    bTown.setMargin(new Insets(2, 2, 2, 2));
+    bTown.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bTown_ActionPerformed(evt);
+      }
+    });
+    bTown.setIcon(tile_town);
+    bTown.setBackground(new Color(0x404040));
+    cp.add(bTown);
+    bLumber.setBounds(16, 568, 64, 64);
+    bLumber.setFont(new Font("Dialog", Font.BOLD, 11));
+    bLumber.setMargin(new Insets(2, 2, 2, 2));
+    bLumber.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bLumber_ActionPerformed(evt);
+      }
+    });
+    bLumber.setIcon(tile_lumberjack);
+    bLumber.setBackground(new Color(0x404040));
+    cp.add(bLumber);
+    bFarm.setBounds(16, 640, 64, 64);
+    bFarm.setFont(new Font("Dialog", Font.BOLD, 11));
+    bFarm.setMargin(new Insets(2, 2, 2, 2));
+    bFarm.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bFarm_ActionPerformed(evt);
+      }
+    });
+    bFarm.setIcon(tile_farmland);
+    bFarm.setBackground(new Color(0x404040));
+    cp.add(bFarm);
+    bVillage.setBounds(88, 496, 64, 64);
+    bVillage.setFont(new Font("Dialog", Font.BOLD, 11));
+    bVillage.setMargin(new Insets(2, 2, 2, 2));
+    bVillage.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bVillage_ActionPerformed(evt);
+      }
+    });
+    bVillage.setIcon(tile_empty);
+    bVillage.setBackground(new Color(0x404040));
+    cp.add(bVillage);
+    bMine.setBounds(88, 568, 64, 64);
+    bMine.setFont(new Font("Dialog", Font.BOLD, 11));
+    bMine.setMargin(new Insets(2, 2, 2, 2));
+    bMine.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bMine_ActionPerformed(evt);
+      }
+    });
+    bMine.setIcon(tile_empty);
+    bMine.setBackground(new Color(0x404040));
+    cp.add(bMine);
+    bBarrack.setBounds(88, 640, 64, 64);
+    bBarrack.setFont(new Font("Dialog", Font.BOLD, 11));
+    bBarrack.setMargin(new Insets(2, 2, 2, 2));
+    bBarrack.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bBarrack_ActionPerformed(evt);
+      }
+    });
+    bBarrack.setIcon(tile_barrack);
+    bBarrack.setBackground(new Color(0x404040));
+    cp.add(bBarrack);
     // end components
     
     setVisible(true);
@@ -174,10 +247,10 @@ public class BaseP extends JFrame {
   public void bPlay_ActionPerformed(ActionEvent evt) {
     bPlay.setVisible(false);
     //Startguthaben
-    Gold = 200;
+    Gold = 20000;
     Stone = 20;
     Wood = 40;
-    Wheat = 50;
+    Wheat = 5000;
     //Startguthaben end
     Aktualisierung();
     //randomizer für zeilen und spalten
@@ -232,34 +305,59 @@ public class BaseP extends JFrame {
           } // end of if-else
           break;
         case 2 : 
-          if (Gold >= 10 && Wheat >= 5 ) {
+          if (Gold >= 10) {
             A[xcl][ycl].setIcon(tile_lumberjack);
             Gold = Gold-10;
-            tile_score[xcl][ycl] = 3;
+            tile_score[xcl][ycl] = 4;
             Lcnt++;
           } else {
             
           } // end of if-else
           break;  
         case 3 : 
-          if (Gold >= 10 && Wheat >= 5 ) {
+          if (Gold >= 10 && Wood >= 5 ) {
             A[xcl][ycl].setIcon(tile_farmland);
             Gold = Gold-10;
-            Wood = Wood-5
-            tile_score[xcl][ycl] = 3;
+            Wood = Wood-5;
+            tile_score[xcl][ycl] = 5;
             Fcnt++;
           } else {
             
           } // end of if-else
           break;  
         case 4 : 
-          if (Gold >= 10 && Wheat >= 5 ) {
+          if (Gold >= 50 && Wheat >= 5 && Stone >=20 && Wood >= 30 ) {
             A[xcl][ycl].setIcon(tile_town);
-            Gold = Gold-20;
+            Gold = Gold-50;
             Wheat = Wheat-5;
             Stone = Stone-20;
             Wood = Wood-30;
-            tile_score[xcl][ycl] = 3;
+            tile_score[xcl][ycl] = 6;
+            
+            Tcnt++;
+          } else {
+            
+          } // end of if-else
+          break;
+          case 5 : 
+          if (Gold >= 20 && Wood >= 15 && Wheat >= 5) {
+            A[xcl][ycl].setIcon(tile_empty);
+            Gold = Gold-20;
+            Wood = Wood-15;
+            Wheat = Wheat-5;
+            tile_score[xcl][ycl] = 7;
+            
+            Tcnt++;
+          } else {
+            
+          } // end of if-else
+          break;
+          case 6 : 
+          if (Gold >= 10 && Wood >= 30 ) {
+            A[xcl][ycl].setIcon(tile_forest);
+            Gold = Gold-20;
+            Wood = Wood-30;
+            tile_score[xcl][ycl] = 8;
             
             Tcnt++;
           } else {
@@ -284,6 +382,42 @@ public class BaseP extends JFrame {
     // TODO add your code here
     
   } // end of bNaechsterTag_ActionPerformed
+
+  public void bTown_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bslc = 4;
+    bTown.setBackground(Color.GREEN);
+  } // end of bTown_ActionPerformed
+
+  public void bLumber_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bslc = 2;
+    bTown.setBackground(Color.GREEN);
+  } // end of bLumber_ActionPerformed
+
+  public void bFarm_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bslc = 3;
+    bTown.setBackground(Color.GREEN);
+  } // end of bFarm_ActionPerformed
+
+  public void bVillage_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bslc = 5;
+    bTown.setBackground(Color.GREEN);
+  } // end of bVillage_ActionPerformed
+
+  public void bMine_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bslc = 6;
+    bTown.setBackground(Color.GREEN);
+  } // end of bMine_ActionPerformed
+
+  public void bBarrack_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bslc = 1;
+    bTown.setBackground(Color.GREEN);
+  } // end of bBarrack_ActionPerformed
 
   // end methods
   
