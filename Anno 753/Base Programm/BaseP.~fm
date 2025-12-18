@@ -1,6 +1,6 @@
 object FGUIForm: TFGUIForm
-  Left = 767
-  Top = 143
+  Left = 740
+  Top = 151
   BorderIcons = [biSystemMenu]
   Caption = 'BaseP'
   ClientHeight = 720
@@ -246,7 +246,7 @@ object FGUIForm: TFGUIForm
     Font.Name = 'Dialog'
     Font.Style = [fsBold]
     Foreground = 3355443
-    Background = 4210752
+    Background = clLime
     JavaType = 'JButton'
     Focusable = True
     actionPerformed = 'bTown_ActionPerformed'
