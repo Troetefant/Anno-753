@@ -34,6 +34,8 @@ public class BaseP extends JFrame {
   int Fcnt; // Farm Counter
   int Mcnt; // Minen Counter
   int Lcnt; //Lumberjack Counter
+  int Tcnt; // Town Counter
+  
   
   //tiles
   static final int C_ZEILEN = 12;
@@ -54,6 +56,7 @@ public class BaseP extends JFrame {
   private Icon tile_troop = new ImageIcon(getClass().getResource("images/utility/troop_overlay.png"));
   private Icon tile_town = new ImageIcon(getClass().getResource("images/utility/tile_town.png"));
   private Icon troop = new ImageIcon(getClass().getResource("images/utility/troop.png"));
+  private Icon tile_lumberjack = new ImageIcon(getClass().getResource("images/utility/tile_lumberjack.png"))
   //Icons end
   // Intruduction Tiles
   JLabel[][] A = new JLabel[C_SPALTEN][C_ZEILEN];
@@ -223,16 +226,15 @@ public class BaseP extends JFrame {
             Gold = Gold-10;
             Wheat = Wheat-5;
             tile_score[xcl][ycl] = 3;
-            Lcnt++;
+            Bcnt++;
           } else {
             
           } // end of if-else
           break;
         case 2 : 
           if (Gold >= 10 && Wheat >= 5 ) {
-            A[xcl][ycl].setIcon(tile_barrack);
+            A[xcl][ycl].setIcon(tile_lumberjack);
             Gold = Gold-10;
-            Wheat = Wheat-5;
             tile_score[xcl][ycl] = 3;
             Lcnt++;
           } else {
@@ -241,22 +243,25 @@ public class BaseP extends JFrame {
           break;  
         case 3 : 
           if (Gold >= 10 && Wheat >= 5 ) {
-            A[xcl][ycl].setIcon(tile_barrack);
+            A[xcl][ycl].setIcon(tile_farmland);
             Gold = Gold-10;
-            Wheat = Wheat-5;
+            Wood = Wood-5
             tile_score[xcl][ycl] = 3;
-            Lcnt++;
+            Fcnt++;
           } else {
             
           } // end of if-else
           break;  
         case 4 : 
           if (Gold >= 10 && Wheat >= 5 ) {
-            A[xcl][ycl].setIcon(tile_barrack);
-            Gold = Gold-10;
+            A[xcl][ycl].setIcon(tile_town);
+            Gold = Gold-20;
             Wheat = Wheat-5;
+            Stone = Stone-20;
+            Wood = Wood-30;
             tile_score[xcl][ycl] = 3;
-            Lcnt++;
+            
+            Tcnt++;
           } else {
             
           } // end of if-else
