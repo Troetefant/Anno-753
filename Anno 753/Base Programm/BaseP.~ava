@@ -79,6 +79,8 @@ public class BaseP extends JFrame {
   private JButton bVillage = new JButton();
   private JButton bMine = new JButton();
   private JButton bBarrack = new JButton();
+  private JLabel jworkforce = new JLabel();
+  private JLabel jEinwohner = new JLabel();
   // end attributes
   
   public BaseP() { 
@@ -233,6 +235,14 @@ public class BaseP extends JFrame {
     bBarrack.setIcon(tile_barrack);
     bBarrack.setBackground(new Color(0x404040));
     cp.add(bBarrack);
+    jworkforce.setBounds(816, 512, 88, 24);
+    jworkforce.setFont(new Font("Dialog", Font.BOLD, 11));
+    jworkforce.setText("Text");
+    cp.add(jworkforce);
+    jEinwohner.setBounds(816, 488, 88, 24);
+    jEinwohner.setFont(new Font("Dialog", Font.BOLD, 11));
+    jEinwohner.setText("Text");
+    cp.add(jEinwohner);
     // end components
     
     setVisible(true);
@@ -378,39 +388,60 @@ public class BaseP extends JFrame {
     jWheat.setText(""+ Wheat);
   }
   
+  public void brst() {     //buttonreset
+    bTown.setBackground(new Color(0x404040));
+    bFarm.setBackground(new Color(0x404040));
+    bVillage.setBackground(new Color(0x404040));
+    bBarrack.setBackground(new Color(0x404040));
+    bMine.setBackground(new Color(0x404040));
+    bLumber.setBackground(new Color(0x404040));
+    }
   public void bNaechsterTag_ActionPerformed(ActionEvent evt) {
-    // TODO add your code here
+    
+    
     
   } // end of bNaechsterTag_ActionPerformed
 
   public void bTown_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 4;
+    brst();
+    bTown.setBackground(Color.GREEN);
   } // end of bTown_ActionPerformed
 
   public void bLumber_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 2;
+    brst();
+    bLumber.setBackground(Color.GREEN);
   } // end of bLumber_ActionPerformed
 
   public void bFarm_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 3;
+    brst();
+    bFarm.setBackground(Color.GREEN);
   } // end of bFarm_ActionPerformed
 
   public void bVillage_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 5;
+    brst();
+    bVillage.setBackground(Color.GREEN);
   } // end of bVillage_ActionPerformed
 
   public void bMine_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 6;
+    brst();
+    bMine.setBackground(Color.GREEN);
   } // end of bMine_ActionPerformed
 
   public void bBarrack_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 1;
+    brst();
+    bBarrack.setBackground(Color.GREEN);
   } // end of bBarrack_ActionPerformed
 
   // end methods

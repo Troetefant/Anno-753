@@ -1,6 +1,6 @@
 object FGUIForm: TFGUIForm
-  Left = 740
-  Top = 151
+  Left = 779
+  Top = 142
   BorderIcons = [biSystemMenu]
   Caption = 'BaseP'
   ClientHeight = 720
@@ -515,6 +515,58 @@ object FGUIForm: TFGUIForm
     Border.MatteLeft = 0
     Border.MatteBottom = 0
     Border.MatteRight = 0
+  end
+  object jworkforce: TJLabel
+    Tag = 1
+    Left = 816
+    Top = 512
+    Width = 88
+    Height = 24
+    Hint = 'jLabel1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = clBtnFace
+    JavaType = 'JLabel'
+    Focusable = True
+    Opaque = True
+    Text = 'Text'
+    HorizontalAlignment = Left
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = Right
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    DisplayedMnemonic = 0
+    DisplayedMnemonicIndex = 0
+  end
+  object jEinwohner: TJLabel
+    Tag = 1
+    Left = 816
+    Top = 488
+    Width = 88
+    Height = 24
+    Hint = 'jLabel1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = clBtnFace
+    JavaType = 'JLabel'
+    Focusable = True
+    Opaque = True
+    Text = 'Text'
+    HorizontalAlignment = Left
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = Right
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    DisplayedMnemonic = 0
+    DisplayedMnemonicIndex = 0
   end
   object GNUgettextMarker: TGnuGettextComponentMarker
   end
