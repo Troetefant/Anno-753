@@ -35,7 +35,7 @@ public class BaseP extends JFrame {
   int Mcnt; // Minen Counter
   int Lcnt; //Lumberjack Counter
   int Tcnt; // Town Counter
-  
+  int Vcnt; //Village Counter
   
   //tiles
   static final int C_ZEILEN = 12;
@@ -258,8 +258,8 @@ public class BaseP extends JFrame {
     bPlay.setVisible(false);
     //Startguthaben
     Gold = 20000;
-    Stone = 20;
-    Wood = 40;
+    Stone = 2000;
+    Wood = 4000;
     Wheat = 5000;
     //Startguthaben end
     Aktualisierung();
@@ -314,8 +314,9 @@ public class BaseP extends JFrame {
             
           } // end of if-else
           break;
-        case 2 : 
-          if (Gold >= 10) {
+        case 2 :
+           
+          if (Gold >= 10&&tile_score[xcl][ycl]== 0) {
             A[xcl][ycl].setIcon(tile_lumberjack);
             Gold = Gold-10;
             tile_score[xcl][ycl] = 4;
@@ -357,19 +358,19 @@ public class BaseP extends JFrame {
             Wheat = Wheat-5;
             tile_score[xcl][ycl] = 7;
             
-            Tcnt++;
+            Vcnt++;
           } else {
             
           } // end of if-else
           break;
           case 6 : 
-          if (Gold >= 10 && Wood >= 30 ) {
-            A[xcl][ycl].setIcon(tile_forest);
+          if (Gold >= 10 && Wood >= 30 && tile_score[xcl][ycl] == 1) {
+            A[xcl][ycl].setIcon(tile_empty);
             Gold = Gold-20;
             Wood = Wood-30;
             tile_score[xcl][ycl] = 8;
             
-            Tcnt++;
+            Mcnt++;
           } else {
             
           } // end of if-else
@@ -397,9 +398,13 @@ public class BaseP extends JFrame {
     bLumber.setBackground(new Color(0x404040));
     }
   public void bNaechsterTag_ActionPerformed(ActionEvent evt) {
+    // Aktualisierung der Ressourcen
+    Gold = Gold + 4*Tcnt;
+    Stone = Stone + 2*Mcnt;
+    Wood = Wood + 2*Lcnt;
+    Wheat = Wheat + 3*Fcnt; 
     
-    
-    
+    Aktualisierung();
   } // end of bNaechsterTag_ActionPerformed
 
   public void bTown_ActionPerformed(ActionEvent evt) {
