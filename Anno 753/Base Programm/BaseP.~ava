@@ -237,11 +237,9 @@ public class BaseP extends JFrame {
     cp.add(bBarrack);
     jworkforce.setBounds(816, 512, 88, 24);
     jworkforce.setFont(new Font("Dialog", Font.BOLD, 11));
-    jworkforce.setText("Text");
     cp.add(jworkforce);
     jEinwohner.setBounds(816, 488, 88, 24);
     jEinwohner.setFont(new Font("Dialog", Font.BOLD, 11));
-    jEinwohner.setText("Text");
     cp.add(jEinwohner);
     // end components
     
