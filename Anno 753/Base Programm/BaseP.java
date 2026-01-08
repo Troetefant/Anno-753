@@ -403,27 +403,34 @@ public class BaseP extends JFrame {
     Wheat = Wheat + 3*Fcnt; 
     Aktualisierung();
   } // end of bNaechsterTag_ActionPerformed
-
-  public void bTown_ActionPerformed(ActionEvent evt) {
+  
+  public void bBarrack_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
-    bslc = 4;
+    bslc = 1;
     brst();
-    bTown.setBackground(Color.GREEN);
-  } // end of bTown_ActionPerformed
-
+    bBarrack.setBackground(Color.GREEN);
+  } // end of bBarrack_ActionPerformed
+  
   public void bLumber_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 2;
     brst();
     bLumber.setBackground(Color.GREEN);
   } // end of bLumber_ActionPerformed
-
+  
   public void bFarm_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
     bslc = 3;
     brst();
     bFarm.setBackground(Color.GREEN);
   } // end of bFarm_ActionPerformed
+  
+  public void bTown_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    bslc = 4;
+    brst();
+    bTown.setBackground(Color.GREEN);
+  } // end of bTown_ActionPerformed
 
   public void bVillage_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
@@ -438,14 +445,6 @@ public class BaseP extends JFrame {
     brst();
     bMine.setBackground(Color.GREEN);
   } // end of bMine_ActionPerformed
-
-  public void bBarrack_ActionPerformed(ActionEvent evt) {
-    // TODO add your code here
-    bslc = 1;
-    brst();
-    bBarrack.setBackground(Color.GREEN);
-  } // end of bBarrack_ActionPerformed
-
   // end methods
   
 } // end of class BaseP
