@@ -403,7 +403,6 @@ public class BaseP extends JFrame {
     Stone = Stone + 2*Mcnt;
     Wood = Wood + 2*Lcnt;
     Wheat = Wheat + 3*Fcnt; 
-    
     Aktualisierung();
   } // end of bNaechsterTag_ActionPerformed
 
