@@ -23,7 +23,7 @@ public class BaseP extends JFrame {
   int YFeld = 0;
   int xcl;   // X Click
   int ycl;   // Y Click
-  int bslc = 1; //Building selected Wert zu Testzwecken
+  int bslc = 0; //Building selected 
   //Ressourcen
   int Gold;
   int Stone;
@@ -406,44 +406,80 @@ public class BaseP extends JFrame {
   
   public void bBarrack_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
-    bslc = 1;
-    brst();
-    bBarrack.setBackground(Color.GREEN);
+    if(bslc == 1){
+      bslc = 0;
+      brst();
+    }
+    else{
+      bslc = 1;
+      brst();
+      bBarrack.setBackground(Color.GREEN);
+    }
   } // end of bBarrack_ActionPerformed
   
   public void bLumber_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
-    bslc = 2;
-    brst();
-    bLumber.setBackground(Color.GREEN);
+    if(bslc == 2){
+      bslc = 0;
+      brst();
+    }
+    else{
+      bslc = 2;
+      brst();
+      bLumber.setBackground(Color.GREEN);
+      }
   } // end of bLumber_ActionPerformed
   
   public void bFarm_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
-    bslc = 3;
-    brst();
-    bFarm.setBackground(Color.GREEN);
+    if(bslc == 3){
+      bslc = 0;
+      brst();
+    }
+    else{
+      bslc = 3;
+      brst();
+      bFarm.setBackground(Color.GREEN);
+    }
   } // end of bFarm_ActionPerformed
   
   public void bTown_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
-    bslc = 4;
-    brst();
-    bTown.setBackground(Color.GREEN);
+    if(bslc == 4){
+      bslc = 0;
+      brst();
+    }
+    else{
+      bslc = 4;
+      brst();
+      bTown.setBackground(Color.GREEN);
+    }
   } // end of bTown_ActionPerformed
 
   public void bVillage_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
-    bslc = 5;
-    brst();
-    bVillage.setBackground(Color.GREEN);
+    if(bslc == 5){
+      bslc = 0;
+      brst();
+    }
+    else{
+      bslc = 5;
+      brst();
+      bVillage.setBackground(Color.GREEN);
+    }
   } // end of bVillage_ActionPerformed
 
   public void bMine_ActionPerformed(ActionEvent evt) {
     // TODO add your code here
-    bslc = 6;
-    brst();
-    bMine.setBackground(Color.GREEN);
+    if(bslc == 6){
+      bslc = 0;
+      brst();
+    }
+    else{
+      bslc = 6;
+      brst();
+      bMine.setBackground(Color.GREEN);
+    }
   } // end of bMine_ActionPerformed
   // end methods
   

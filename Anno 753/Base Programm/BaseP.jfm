@@ -1,5 +1,5 @@
 object FGUIForm: TFGUIForm
-  Left = 920
+  Left = 824
   Top = 196
   BorderIcons = [biSystemMenu]
   Caption = 'BaseP'
