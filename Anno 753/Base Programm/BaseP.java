@@ -63,6 +63,7 @@ public class BaseP extends JFrame {
   private Icon tile_town = new ImageIcon(getClass().getResource("images/utility/tile_town.png"));
   private Icon troop = new ImageIcon(getClass().getResource("images/utility/troop.png"));
   private Icon tile_lumberjack = new ImageIcon(getClass().getResource("images/utility/tile_lumberjack.png"));
+  private Icon tile_mineshaft = new ImageIcon(getClass().getResource("images/utility/tile_mineshaft.png"));
   //Icons end
   // Intruduction Tiles
   JLabel[][] A = new JLabel[C_SPALTEN][C_ZEILEN];
@@ -231,7 +232,7 @@ public class BaseP extends JFrame {
         bMine_ActionPerformed(evt);
       }
     });
-    bMine.setIcon(tile_empty);
+    bMine.setIcon(tile_mineshaft);
     bMine.setBackground(new Color(0x404040));
     cp.add(bMine);
     bBarrack.setBounds(88, 640, 64, 64);
@@ -389,7 +390,7 @@ public class BaseP extends JFrame {
           break;
           case 6 : 
           if (Gold >= 10 && Wood >= 30 && tile_score[xcl][ycl] == 1) {
-            A[xcl][ycl].setIcon(tile_empty);
+            A[xcl][ycl].setIcon(tile_mineshaft);
             Gold = Gold-20;
             Wood = Wood-30;
             tile_score[xcl][ycl] = 8;
