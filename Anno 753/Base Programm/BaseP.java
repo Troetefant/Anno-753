@@ -66,6 +66,8 @@ public class BaseP extends JFrame {
   private Icon troop = new ImageIcon(getClass().getResource("images/utility/troop.png"));
   private Icon tile_lumberjack = new ImageIcon(getClass().getResource("images/utility/tile_lumberjack.png"));
   private Icon tile_mineshaft = new ImageIcon(getClass().getResource("images/utility/tile_mineshaft.png"));
+  private Icon einwohner = new ImageIcon(getClass().getResource("images/utility/villager.png"));
+  
   //Icons end
   // Intruduction Tiles
   JLabel[][] A = new JLabel[C_SPALTEN][C_ZEILEN];
@@ -94,6 +96,13 @@ public class BaseP extends JFrame {
   private JLabel jwoodp = new JLabel();
   private JLabel jstonep = new JLabel();
   private JLabel jwheatp = new JLabel();
+  private JLabel jSBName = new JLabel();
+  private JLabel jBaukosten = new JLabel();
+  private JLabel jSBKGold = new JLabel();
+  private JLabel jSBKStein = new JLabel();
+  private JLabel jSBKHolz = new JLabel();
+  private JLabel jSBKWeizen = new JLabel();
+  private JLabel jSBGebaut = new JLabel();
   // end attributes
   
   public BaseP() { 
@@ -253,6 +262,7 @@ public class BaseP extends JFrame {
     cp.add(jTage);
     jEinwohner.setBounds(816, 488, 88, 24);
     jEinwohner.setFont(new Font("Dialog", Font.BOLD, 11));
+    jEinwohner.setIcon(einwohner);
     cp.add(jEinwohner);
     jgoldp.setBounds(968, 488, 28, 24);
     jgoldp.setFont(new Font("Dialog", Font.BOLD, 11));
@@ -270,6 +280,35 @@ public class BaseP extends JFrame {
     jwheatp.setFont(new Font("Dialog", Font.BOLD, 11));
     jwheatp.setForeground(Color.GREEN);
     cp.add(jwheatp);
+    jSBName.setBounds(160, 496, 80, 24);
+    jSBName.setFont(new Font("Dialog", Font.BOLD, 11));
+    cp.add(jSBName);
+    jSBName.setVisible(false);
+    jBaukosten.setBounds(160, 520, 80, 24);
+    jBaukosten.setFont(new Font("Dialog", Font.BOLD, 11));
+    jBaukosten.setText("Baukosten:");
+    jBaukosten.setVisible(false);
+    cp.add(jBaukosten);
+    jSBKGold.setBounds(176, 544, 80, 24);
+    jSBKGold.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKGold.setVisible(false);
+    cp.add(jSBKGold);
+    jSBKStein.setBounds(176, 568, 80, 24);
+    jSBKStein.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKStein.setVisible(false);
+    cp.add(jSBKStein);
+    jSBKHolz.setBounds(176, 592, 80, 24);
+    jSBKHolz.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKHolz.setVisible(false);
+    cp.add(jSBKHolz);
+    jSBKWeizen.setBounds(176, 616, 80, 24);
+    jSBKWeizen.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKWeizen.setVisible(false);
+    cp.add(jSBKWeizen);
+    jSBGebaut.setBounds(160, 640, 80, 24);
+    jSBGebaut.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBGebaut.setVisible(false);
+    cp.add(jSBGebaut);
     // end components
     
     setVisible(true);
