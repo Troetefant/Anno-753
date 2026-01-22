@@ -29,6 +29,8 @@ public class BaseP extends JFrame {
   int Stone;
   int Wood;
   int Wheat;
+  int Einwohner;
+  int Tage;
   //Ressourcen end
   int Bcnt; // Barrack Counter
   int Fcnt; // Farm Counter
@@ -86,7 +88,7 @@ public class BaseP extends JFrame {
   private JButton bVillage = new JButton();
   private JButton bMine = new JButton();
   private JButton bBarrack = new JButton();
-  private JLabel jworkforce = new JLabel();
+  private JLabel jTage = new JLabel();
   private JLabel jEinwohner = new JLabel();
   private JLabel jgoldp = new JLabel();
   private JLabel jwoodp = new JLabel();
@@ -246,9 +248,9 @@ public class BaseP extends JFrame {
     bBarrack.setIcon(tile_barrack);
     bBarrack.setBackground(new Color(0x404040));
     cp.add(bBarrack);
-    jworkforce.setBounds(816, 512, 88, 24);
-    jworkforce.setFont(new Font("Dialog", Font.BOLD, 11));
-    cp.add(jworkforce);
+    jTage.setBounds(816, 512, 88, 24);
+    jTage.setFont(new Font("Dialog", Font.BOLD, 11));
+    cp.add(jTage);
     jEinwohner.setBounds(816, 488, 88, 24);
     jEinwohner.setFont(new Font("Dialog", Font.BOLD, 11));
     cp.add(jEinwohner);
@@ -368,6 +370,7 @@ public class BaseP extends JFrame {
             Wheat = Wheat-5;
             Stone = Stone-20;
             Wood = Wood-30;
+            Einwohner = Einwohner + 12;
             tile_score[xcl][ycl] = 6;
             
             Tcnt++;
@@ -381,6 +384,7 @@ public class BaseP extends JFrame {
             Gold = Gold-20;
             Wood = Wood-15;
             Wheat = Wheat-5;
+            Einwohner = Einwohner + 4;
             tile_score[xcl][ycl] = 7;
             
             Vcnt++;
@@ -420,6 +424,8 @@ public class BaseP extends JFrame {
     jstonep.setText(""+stonep);
     jwoodp.setText(""+woodp);
     jwheatp.setText(""+wheatp);
+    jTage.setText(""+Tage);
+    jEinwohner.setText(""+Einwohner);
   }
   
   public void brst() {     //buttonreset
@@ -432,10 +438,11 @@ public class BaseP extends JFrame {
     }
   public void bNaechsterTag_ActionPerformed(ActionEvent evt) {
     // Aktualisierung der Ressourcen
-    Gold = Gold + 4*Tcnt;
+    Gold = Gold + 4*Tcnt + 2*Vcnt;
     Stone = Stone + 2*Mcnt;
     Wood = Wood + 2*Lcnt;
-    Wheat = Wheat + 3*Fcnt; 
+    Wheat = Wheat + 3*Fcnt;
+    Tage++; 
     Aktualisierung();
   } // end of bNaechsterTag_ActionPerformed
   
