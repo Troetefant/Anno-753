@@ -44,7 +44,7 @@ public class BaseP extends JFrame {
   int woodp = 0;
   int wheatp = 0;
   // Ressourecengewinne pro Tag end
-  
+
   //tiles
   static final int C_ZEILEN = 12;
   static final int C_SPALTEN = 27;
@@ -474,6 +474,13 @@ public class BaseP extends JFrame {
     bBarrack.setBackground(new Color(0x404040));
     bMine.setBackground(new Color(0x404040));
     bLumber.setBackground(new Color(0x404040));
+    jSBName.setVisible(false);
+    jBaukosten.setVisible(false);
+    jSBKGold.setVisible(false);
+    jSBKStein.setVisible(false);
+    jSBKHolz.setVisible(false);
+    jSBKWeizen.setVisible(false);
+    jSBGebaut.setVisible(false);
     }
   public void bNaechsterTag_ActionPerformed(ActionEvent evt) {
     // Aktualisierung der Ressourcen
@@ -495,6 +502,16 @@ public class BaseP extends JFrame {
       bslc = 1;
       brst();
       bBarrack.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jSBName.setText("Barrack");
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKGold.setText(" Beispiel Gold");
+      jSBKStein.setVisible(true);
+      jSBKHolz.setVisible(true);
+      jSBKWeizen.setVisible(true);
+      jSBGebaut.setVisible(true);
+      //Requirement
     }
   } // end of bBarrack_ActionPerformed
   
@@ -508,6 +525,13 @@ public class BaseP extends JFrame {
       bslc = 2;
       brst();
       bLumber.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKStein.setVisible(true);
+      jSBKHolz.setVisible(true);
+      jSBKWeizen.setVisible(true);
+      jSBGebaut.setVisible(true);
       }
   } // end of bLumber_ActionPerformed
   
@@ -521,6 +545,13 @@ public class BaseP extends JFrame {
       bslc = 3;
       brst();
       bFarm.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKStein.setVisible(true);
+      jSBKHolz.setVisible(true);
+      jSBKWeizen.setVisible(true);
+      jSBGebaut.setVisible(true);
     }
   } // end of bFarm_ActionPerformed
   
@@ -534,6 +565,13 @@ public class BaseP extends JFrame {
       bslc = 4;
       brst();
       bTown.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKStein.setVisible(true);
+      jSBKHolz.setVisible(true);
+      jSBKWeizen.setVisible(true);
+      jSBGebaut.setVisible(true);
     }
   } // end of bTown_ActionPerformed
 
@@ -547,6 +585,13 @@ public class BaseP extends JFrame {
       bslc = 5;
       brst();
       bVillage.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKStein.setVisible(true);
+      jSBKHolz.setVisible(true);
+      jSBKWeizen.setVisible(true);
+      jSBGebaut.setVisible(true);
     }
   } // end of bVillage_ActionPerformed
 
@@ -560,6 +605,13 @@ public class BaseP extends JFrame {
       bslc = 6;
       brst();
       bMine.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKStein.setVisible(true);
+      jSBKHolz.setVisible(true);
+      jSBKWeizen.setVisible(true);
+      jSBGebaut.setVisible(true);
     }
   } // end of bMine_ActionPerformed
   // end methods
