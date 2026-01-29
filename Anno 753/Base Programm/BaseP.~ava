@@ -110,6 +110,8 @@ public class BaseP extends JFrame {
   private JLabel lGewonnen = new JLabel();
     private ImageIcon lGewonnenIcon = new ImageIcon(getClass().getResource("images/Romulus.png"));
   private JButton bBeenden = new JButton();
+  private JLabel lVerloren = new JLabel();
+    private ImageIcon lVerlorenIcon = new ImageIcon(getClass().getResource("images/Romulus.png"));
   // end attributes
   
   public BaseP() { 
@@ -129,6 +131,17 @@ public class BaseP extends JFrame {
     cp.setLayout(null);
     setUndecorated(true);
     // start components
+    bBeenden.setBounds(536, 640, 83, 24);
+    bBeenden.setFont(new Font("Dialog", Font.BOLD, 11));
+    bBeenden.setText("Beenden");
+    bBeenden.setMargin(new Insets(2, 2, 2, 2));
+    bBeenden.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bBeenden_ActionPerformed(evt);
+      }
+    });
+    bBeenden.setVisible(false);
+    cp.add(bBeenden);
     lGewonnen.setBounds(352, 488, 528, 216);
     lGewonnen.setText("     Gewonnen!");
     lGewonnen.setFont(new Font("Dialog", Font.BOLD, 48));
@@ -149,18 +162,7 @@ public class BaseP extends JFrame {
       
       
     } // end of for
-    
-    /*   Funktioniert nd
-    for (XFeld = 0; XFeld < C_ZEILEN; XFeld++ ) {
-      for (YFeld = 0; YFeld < C_SPALTEN; YFeld++ ) {
-          A[XFeld][YFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
-          A[XFeld][YFeld].setBounds(40*XFeld,YFeld*40 ,40, 40);
-          cp.add(A[XFeld][YFeld]);
-      } // end of for
-      
-    } // end of for
-    
-    */
+  
     
     YFeld = 0;
     XFeld = 0;
@@ -335,17 +337,13 @@ public class BaseP extends JFrame {
     lVorraussetzungen.setText("Vorraussetzungen:");
     lVorraussetzungen.setVisible(false);
     cp.add(lVorraussetzungen);
-    bBeenden.setBounds(536, 640, 83, 24);
-    bBeenden.setFont(new Font("Dialog", Font.BOLD, 11));
-    bBeenden.setText("Beenden");
-    bBeenden.setMargin(new Insets(2, 2, 2, 2));
-    bBeenden.addActionListener(new ActionListener() { 
-      public void actionPerformed(ActionEvent evt) { 
-        bBeenden_ActionPerformed(evt);
-      }
-    });
-    bBeenden.setVisible(false);
-    cp.add(bBeenden);
+    lVerloren.setBounds(352, 488, 528, 216);
+    lVerloren.setBackground(Color.RED);
+    lVerloren.setFont(new Font("Dialog", Font.BOLD, 48));
+    lVerloren.setIcon(lVerlorenIcon);
+    lVerloren.setText("  Verloren!");
+    lVerloren.setVisible(false);
+    cp.add(lVerloren);
     // end components
     
     setVisible(true);
@@ -360,7 +358,7 @@ public class BaseP extends JFrame {
   public void bPlay_ActionPerformed(ActionEvent evt) {
     bPlay.setVisible(false);
     //Startguthaben
-    Gold = 40;
+    Gold = 60;
     Stone = 0;
     Wood = 0;
     Wheat = 0;
@@ -490,7 +488,7 @@ public class BaseP extends JFrame {
   } // end of cp_MouseClicked
   
   public void Aktualisierung() {
-    goldp =4*Tcnt;
+    goldp =4*Tcnt + 2*Vcnt;
     stonep =2*Mcnt;
     woodp =2*Lcnt;
     wheatp =3*Fcnt;
@@ -535,6 +533,10 @@ public class BaseP extends JFrame {
     Wheat = Wheat + 3*Fcnt;
     Tage++; 
     Aktualisierung();
+    if (Tage >= 66) {
+      lVerloren.setVisible(true);
+      bBeenden.setVisible(true);
+    } // end of if
   } // end of bNaechsterTag_ActionPerformed
   
   public void bBarrack_ActionPerformed(ActionEvent evt) {
@@ -703,7 +705,7 @@ public class BaseP extends JFrame {
       jSBKHolz.setVisible(true);
       jSBKHolz.setText( "30 Holz");
       jSBKWeizen.setVisible(true);
-      jSBKWeizen.setText("5 Weizen");
+      jSBKWeizen.setText("0 Weizen");
       jSBGebaut.setVisible(true);
       jSBGebaut.setText(Mcnt + " gebaut");
       lVorraussetzungen.setVisible(true);

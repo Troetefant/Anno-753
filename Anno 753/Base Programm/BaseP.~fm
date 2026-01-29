@@ -1,4 +1,4 @@
-object FGUIForm: TFGUIForm
+object FGUIForm_1: TFGUIForm
   Left = 736
   Top = 214
   BorderIcons = [biSystemMenu]
@@ -31,6 +31,33 @@ object FGUIForm: TFGUIForm
   FontSize = 11
   mouseClicked = 'cp_MouseClicked'
   TextHeight = 15
+  object lVerloren: TJLabel
+    Tag = 1
+    Left = 352
+    Top = 488
+    Width = 528
+    Height = 216
+    Hint = 'jLabel1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -64
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = clWhite
+    JavaType = 'JLabel'
+    Focusable = True
+    Opaque = True
+    Text = '     Verloren!'
+    Icon = 'images/Romulus.png'
+    HorizontalAlignment = Left
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = Right
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    DisplayedMnemonic = 0
+    DisplayedMnemonicIndex = 0
+  end
   object bPlay: TJButton
     Tag = 4
     Left = 0
