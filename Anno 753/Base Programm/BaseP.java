@@ -92,6 +92,7 @@ public class BaseP extends JFrame {
   private JButton bMine = new JButton();
   private JButton bBarrack = new JButton();
   private JLabel jTage = new JLabel();
+    private ImageIcon jTageIcon = new ImageIcon(getClass().getResource("images/calendar.png"));
   private JLabel jEinwohner = new JLabel();
   private JLabel jgoldp = new JLabel();
   private JLabel jwoodp = new JLabel();
@@ -273,6 +274,7 @@ public class BaseP extends JFrame {
     cp.add(bBarrack);
     jTage.setBounds(816, 512, 88, 24);
     jTage.setFont(new Font("Dialog", Font.BOLD, 11));
+    jTage.setIcon(jTageIcon);
     cp.add(jTage);
     jEinwohner.setBounds(816, 488, 88, 24);
     jEinwohner.setFont(new Font("Dialog", Font.BOLD, 11));
@@ -358,10 +360,10 @@ public class BaseP extends JFrame {
   public void bPlay_ActionPerformed(ActionEvent evt) {
     bPlay.setVisible(false);
     //Startguthaben
-    Gold = 20000;
-    Stone = 2000;
-    Wood = 4000;
-    Wheat = 5000;
+    Gold = 60;
+    Stone = 0;
+    Wood = 0;
+    Wheat = 0;
     //Startguthaben end
     Aktualisierung();
     //randomizer für zeilen und spalten
