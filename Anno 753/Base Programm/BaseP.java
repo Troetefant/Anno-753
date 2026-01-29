@@ -67,6 +67,7 @@ public class BaseP extends JFrame {
   private Icon tile_lumberjack = new ImageIcon(getClass().getResource("images/utility/tile_lumberjack.png"));
   private Icon tile_mineshaft = new ImageIcon(getClass().getResource("images/utility/tile_mineshaft.png"));
   private Icon einwohner = new ImageIcon(getClass().getResource("images/utility/villager.png"));
+  private Icon tile_village = new ImageIcon(getClass().getResource("images/utility/tile_village.png"));
   
   //Icons end
   // Intruduction Tiles
@@ -105,6 +106,9 @@ public class BaseP extends JFrame {
   private JLabel jSBGebaut = new JLabel();
   private JLabel jReq = new JLabel();
   private JLabel lVorraussetzungen = new JLabel();
+  private JLabel lGewonnen = new JLabel();
+    private ImageIcon lGewonnenIcon = new ImageIcon(getClass().getResource("images/Romulus.png"));
+  private JButton bBeenden = new JButton();
   // end attributes
   
   public BaseP() { 
@@ -124,6 +128,13 @@ public class BaseP extends JFrame {
     cp.setLayout(null);
     setUndecorated(true);
     // start components
+    lGewonnen.setBounds(352, 488, 528, 216);
+    lGewonnen.setText("     Gewonnen!");
+    lGewonnen.setFont(new Font("Dialog", Font.BOLD, 48));
+    lGewonnen.setIcon(lGewonnenIcon);
+    lGewonnen.setVisible(false);
+    
+    cp.add(lGewonnen);
     
     for (i = 0;i < 324 ;i++) {
       A[XFeld][YFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
@@ -236,6 +247,7 @@ public class BaseP extends JFrame {
     });
     bVillage.setIcon(tile_empty);
     bVillage.setBackground(new Color(0x404040));
+    bVillage.setIcon(tile_village);
     cp.add(bVillage);
     bMine.setBounds(88, 568, 64, 64);
     bMine.setFont(new Font("Dialog", Font.BOLD, 11));
@@ -321,6 +333,17 @@ public class BaseP extends JFrame {
     lVorraussetzungen.setText("Vorraussetzungen:");
     lVorraussetzungen.setVisible(false);
     cp.add(lVorraussetzungen);
+    bBeenden.setBounds(536, 640, 83, 24);
+    bBeenden.setFont(new Font("Dialog", Font.BOLD, 11));
+    bBeenden.setText("Beenden");
+    bBeenden.setMargin(new Insets(2, 2, 2, 2));
+    bBeenden.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bBeenden_ActionPerformed(evt);
+      }
+    });
+    bBeenden.setVisible(false);
+    cp.add(bBeenden);
     // end components
     
     setVisible(true);
@@ -433,7 +456,7 @@ public class BaseP extends JFrame {
           break;
           case 5 : 
           if (Gold >= 20 && Wood >= 15 && Wheat >= 5 && tile_score[xcl][ycl] == 2) {
-            A[xcl][ycl].setIcon(tile_empty);
+            A[xcl][ycl].setIcon(tile_village);
             Gold = Gold-20;
             Wood = Wood-15;
             Wheat = Wheat-5;
@@ -479,6 +502,10 @@ public class BaseP extends JFrame {
     jwheatp.setText(""+wheatp);
     jTage.setText(""+Tage);
     jEinwohner.setText(""+Einwohner);
+    if (Bcnt >= 1) {
+      lGewonnen.setVisible(true);
+      bBeenden.setVisible(true);
+    } // end of if
   }
   
   public void brst() {     //buttonreset
@@ -682,6 +709,11 @@ public class BaseP extends JFrame {
       jReq.setText("keine");
     }
   } // end of bMine_ActionPerformed
+  public void bBeenden_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    System.exit(1);
+  } // end of bBeenden_ActionPerformed
+
   // end methods
   
 } // end of class BaseP

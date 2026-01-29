@@ -1,6 +1,6 @@
 object FGUIForm: TFGUIForm
-  Left = 1052
-  Top = 80
+  Left = 989
+  Top = 136
   BorderIcons = [biSystemMenu]
   Caption = 'BaseP'
   ClientHeight = 716
@@ -905,6 +905,80 @@ object FGUIForm: TFGUIForm
     IconTextGap = 4
     DisplayedMnemonic = 0
     DisplayedMnemonicIndex = 0
+  end
+  object lGewonnen: TJLabel
+    Tag = 1
+    Left = 352
+    Top = 488
+    Width = 528
+    Height = 216
+    Hint = 'jLabel1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -64
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = clWhite
+    JavaType = 'JLabel'
+    Focusable = True
+    Opaque = True
+    Text = '     Gewonnen!'
+    Icon = 'images/Romulus.png'
+    HorizontalAlignment = Left
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = Right
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    DisplayedMnemonic = 0
+    DisplayedMnemonicIndex = 0
+  end
+  object bBeenden: TJButton
+    Tag = 4
+    Left = 536
+    Top = 640
+    Width = 83
+    Height = 24
+    Hint = 'jButton1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = 15658734
+    JavaType = 'JButton'
+    Focusable = True
+    actionPerformed = 'bBeenden_ActionPerformed'
+    Opaque = True
+    Text = 'Beenden'
+    Mnemonic = 0
+    DisplayedMnemonicIndex = 0
+    Selected = False
+    BorderPainted = True
+    FocusPainted = False
+    ContentAreaFilled = True
+    HorizontalAlignment = Center
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = Right
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    RolloverEnabled = False
+    Border.BorderType = NoBorder
+    Border.LineColor = clBlack
+    Border.LineThickness = 0
+    Border.LineRounded = False
+    Border.EtchHighlightColor = clBlack
+    Border.EtchShadowColor = clBlack
+    Border.Etchtype = 0
+    Border.BevelHighlightColor = clBlack
+    Border.BevelShadowColor = clBlack
+    Border.Beveltype = 0
+    Border.MatteColor = clBlack
+    Border.MatteTop = 0
+    Border.MatteLeft = 0
+    Border.MatteBottom = 0
+    Border.MatteRight = 0
   end
   object GNUgettextMarker: TGnuGettextComponentMarker
   end
