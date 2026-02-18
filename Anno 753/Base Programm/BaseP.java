@@ -44,7 +44,7 @@ public class BaseP extends JFrame {
   int woodp = 0;
   int wheatp = 0;
   // Ressourecengewinne pro Tag end
-  
+
   //tiles
   static final int C_ZEILEN = 12;
   static final int C_SPALTEN = 27;
@@ -66,6 +66,9 @@ public class BaseP extends JFrame {
   private Icon troop = new ImageIcon(getClass().getResource("images/utility/troop.png"));
   private Icon tile_lumberjack = new ImageIcon(getClass().getResource("images/utility/tile_lumberjack.png"));
   private Icon tile_mineshaft = new ImageIcon(getClass().getResource("images/utility/tile_mineshaft.png"));
+  private Icon einwohner = new ImageIcon(getClass().getResource("images/utility/villager.png"));
+  private Icon tile_village = new ImageIcon(getClass().getResource("images/utility/tile_village.png"));
+  
   //Icons end
   // Intruduction Tiles
   JLabel[][] A = new JLabel[C_SPALTEN][C_ZEILEN];
@@ -89,19 +92,34 @@ public class BaseP extends JFrame {
   private JButton bMine = new JButton();
   private JButton bBarrack = new JButton();
   private JLabel jTage = new JLabel();
+    private ImageIcon jTageIcon = new ImageIcon(getClass().getResource("images/calendar.png"));
   private JLabel jEinwohner = new JLabel();
   private JLabel jgoldp = new JLabel();
   private JLabel jwoodp = new JLabel();
   private JLabel jstonep = new JLabel();
   private JLabel jwheatp = new JLabel();
+  private JLabel jSBName = new JLabel();
+  private JLabel jBaukosten = new JLabel();
+  private JLabel jSBKGold = new JLabel();
+  private JLabel jSBKStein = new JLabel();
+  private JLabel jSBKHolz = new JLabel();
+  private JLabel jSBKWeizen = new JLabel();
+  private JLabel jSBGebaut = new JLabel();
+  private JLabel jReq = new JLabel();
+  private JLabel lVorraussetzungen = new JLabel();
+  private JLabel lGewonnen = new JLabel();
+    private ImageIcon lGewonnenIcon = new ImageIcon(getClass().getResource("images/Romulus.png"));
+  private JButton bBeenden = new JButton();
+  private JLabel lVerloren = new JLabel();
+    private ImageIcon lVerlorenIcon = new ImageIcon(getClass().getResource("images/Romulus.png"));
   // end attributes
   
   public BaseP() { 
     // Frame init
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-    int frameWidth = 1096; 
-    int frameHeight = 755;
+    int frameWidth = 1080; 
+    int frameHeight = 720;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -113,6 +131,24 @@ public class BaseP extends JFrame {
     cp.setLayout(null);
     setUndecorated(true);
     // start components
+    bBeenden.setBounds(536, 640, 83, 24);
+    bBeenden.setFont(new Font("Dialog", Font.BOLD, 11));
+    bBeenden.setText("Beenden");
+    bBeenden.setMargin(new Insets(2, 2, 2, 2));
+    bBeenden.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        bBeenden_ActionPerformed(evt);
+      }
+    });
+    bBeenden.setVisible(false);
+    cp.add(bBeenden);
+    lGewonnen.setBounds(352, 488, 528, 216);
+    lGewonnen.setText("     Gewonnen!");
+    lGewonnen.setFont(new Font("Dialog", Font.BOLD, 48));
+    lGewonnen.setIcon(lGewonnenIcon);
+    lGewonnen.setVisible(false);
+    
+    cp.add(lGewonnen);
     
     for (i = 0;i < 324 ;i++) {
       A[XFeld][YFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
@@ -126,22 +162,11 @@ public class BaseP extends JFrame {
       
       
     } // end of for
-    
-    /*   Funktioniert nd
-    for (XFeld = 0; XFeld < C_ZEILEN; XFeld++ ) {
-      for (YFeld = 0; YFeld < C_SPALTEN; YFeld++ ) {
-          A[XFeld][YFeld] = new JLabel(tile_empty,SwingConstants.LEFT);
-          A[XFeld][YFeld].setBounds(40*XFeld,YFeld*40 ,40, 40);
-          cp.add(A[XFeld][YFeld]);
-      } // end of for
-      
-    } // end of for
-    
-    */
+  
     
     YFeld = 0;
     XFeld = 0;
-    bPlay.setBounds(264, 496, 529, 217);
+    bPlay.setBounds(0, 480, 1080, 232);
     bPlay.setFont(new Font("Dialog", Font.BOLD, 11));
     bPlay.setText("Spiel Starten!");
     bPlay.setMargin(new Insets(2, 2, 2, 2));
@@ -225,6 +250,7 @@ public class BaseP extends JFrame {
     });
     bVillage.setIcon(tile_empty);
     bVillage.setBackground(new Color(0x404040));
+    bVillage.setIcon(tile_village);
     cp.add(bVillage);
     bMine.setBounds(88, 568, 64, 64);
     bMine.setFont(new Font("Dialog", Font.BOLD, 11));
@@ -250,9 +276,11 @@ public class BaseP extends JFrame {
     cp.add(bBarrack);
     jTage.setBounds(816, 512, 88, 24);
     jTage.setFont(new Font("Dialog", Font.BOLD, 11));
+    jTage.setIcon(jTageIcon);
     cp.add(jTage);
     jEinwohner.setBounds(816, 488, 88, 24);
     jEinwohner.setFont(new Font("Dialog", Font.BOLD, 11));
+    jEinwohner.setIcon(einwohner);
     cp.add(jEinwohner);
     jgoldp.setBounds(968, 488, 28, 24);
     jgoldp.setFont(new Font("Dialog", Font.BOLD, 11));
@@ -270,6 +298,52 @@ public class BaseP extends JFrame {
     jwheatp.setFont(new Font("Dialog", Font.BOLD, 11));
     jwheatp.setForeground(Color.GREEN);
     cp.add(jwheatp);
+    jSBName.setBounds(160, 496, 80, 24);
+    jSBName.setFont(new Font("Dialog", Font.BOLD, 11));
+    cp.add(jSBName);
+    jSBName.setVisible(false);
+    jBaukosten.setBounds(160, 520, 80, 24);
+    jBaukosten.setFont(new Font("Dialog", Font.BOLD, 11));
+    jBaukosten.setText("Baukosten:");
+    jBaukosten.setVisible(false);
+    cp.add(jBaukosten);
+    jSBKGold.setBounds(176, 544, 80, 24);
+    jSBKGold.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKGold.setVisible(false);
+    cp.add(jSBKGold);
+    jSBKStein.setBounds(176, 568, 80, 24);
+    jSBKStein.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKStein.setVisible(false);
+    cp.add(jSBKStein);
+    jSBKHolz.setBounds(176, 592, 80, 24);
+    jSBKHolz.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKHolz.setVisible(false);
+    cp.add(jSBKHolz);
+    jSBKWeizen.setBounds(176, 616, 80, 24);
+    jSBKWeizen.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBKWeizen.setVisible(false);
+    cp.add(jSBKWeizen);
+    jSBGebaut.setBounds(160, 640, 96, 24);
+    jSBGebaut.setFont(new Font("Dialog", Font.BOLD, 11));
+    jSBGebaut.setVisible(false);
+    cp.add(jSBGebaut);
+    jReq.setBounds(160, 688, 80, 24);
+    jReq.setFont(new Font("Dialog", Font.BOLD, 11));
+    jReq.setText("");
+    jReq.setVisible(false);
+    cp.add(jReq);
+    lVorraussetzungen.setBounds(160, 664, 111, 24);
+    lVorraussetzungen.setFont(new Font("Dialog", Font.BOLD, 11));
+    lVorraussetzungen.setText("Vorraussetzungen:");
+    lVorraussetzungen.setVisible(false);
+    cp.add(lVorraussetzungen);
+    lVerloren.setBounds(352, 488, 528, 216);
+    lVerloren.setBackground(Color.RED);
+    lVerloren.setFont(new Font("Dialog", Font.BOLD, 48));
+    lVerloren.setIcon(lVerlorenIcon);
+    lVerloren.setText("     Verloren!");
+    lVerloren.setVisible(false);
+    cp.add(lVerloren);
     // end components
     
     setVisible(true);
@@ -284,10 +358,10 @@ public class BaseP extends JFrame {
   public void bPlay_ActionPerformed(ActionEvent evt) {
     bPlay.setVisible(false);
     //Startguthaben
-    Gold = 20000;
-    Stone = 2000;
-    Wood = 4000;
-    Wheat = 5000;
+    Gold = 60;
+    Stone = 0;
+    Wood = 0;
+    Wheat = 0;
     //Startguthaben end
     Aktualisierung();
     //randomizer für zeilen und spalten
@@ -331,10 +405,12 @@ public class BaseP extends JFrame {
           
           break;
         case  1:
-          if (Gold >= 10 && Wheat >= 5  && tile_score[xcl][ycl] == 2) {
+          if (Gold >= 10 && Wheat >= 5 && Stone >= 15 && Wood >= 35 && tile_score[xcl][ycl] == 2 && Einwohner >= 50) {
             A[xcl][ycl].setIcon(tile_barrack);
             Gold = Gold-10;
             Wheat = Wheat-5;
+            Stone = Stone -15;
+            Wood = Wood-35;
             tile_score[xcl][ycl] = 3;
             Bcnt++;
           } else {
@@ -380,7 +456,7 @@ public class BaseP extends JFrame {
           break;
           case 5 : 
           if (Gold >= 20 && Wood >= 15 && Wheat >= 5 && tile_score[xcl][ycl] == 2) {
-            A[xcl][ycl].setIcon(tile_empty);
+            A[xcl][ycl].setIcon(tile_village);
             Gold = Gold-20;
             Wood = Wood-15;
             Wheat = Wheat-5;
@@ -412,7 +488,7 @@ public class BaseP extends JFrame {
   } // end of cp_MouseClicked
   
   public void Aktualisierung() {
-    goldp =4*Tcnt;
+    goldp =4*Tcnt + 2*Vcnt;
     stonep =2*Mcnt;
     woodp =2*Lcnt;
     wheatp =3*Fcnt;
@@ -426,6 +502,10 @@ public class BaseP extends JFrame {
     jwheatp.setText(""+wheatp);
     jTage.setText(""+Tage);
     jEinwohner.setText(""+Einwohner);
+    if (Bcnt >= 1) {
+      lGewonnen.setVisible(true);
+      bBeenden.setVisible(true);
+    } // end of if
   }
   
   public void brst() {     //buttonreset
@@ -435,6 +515,15 @@ public class BaseP extends JFrame {
     bBarrack.setBackground(new Color(0x404040));
     bMine.setBackground(new Color(0x404040));
     bLumber.setBackground(new Color(0x404040));
+    jSBName.setVisible(false);
+    jBaukosten.setVisible(false);
+    jSBKGold.setVisible(false);
+    jSBKStein.setVisible(false);
+    jSBKHolz.setVisible(false);
+    jSBKWeizen.setVisible(false);
+    jSBGebaut.setVisible(false);
+    lVorraussetzungen.setVisible(false);
+    jReq.setVisible(false);
     }
   public void bNaechsterTag_ActionPerformed(ActionEvent evt) {
     // Aktualisierung der Ressourcen
@@ -444,6 +533,10 @@ public class BaseP extends JFrame {
     Wheat = Wheat + 3*Fcnt;
     Tage++; 
     Aktualisierung();
+    if (Tage >= 66) {
+      lVerloren.setVisible(true);
+      bBeenden.setVisible(true);
+    } // end of if
   } // end of bNaechsterTag_ActionPerformed
   
   public void bBarrack_ActionPerformed(ActionEvent evt) {
@@ -456,6 +549,23 @@ public class BaseP extends JFrame {
       bslc = 1;
       brst();
       bBarrack.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jSBName.setText("Barrack");
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKGold.setText("10 Gold");
+      jSBKStein.setVisible(true);
+      jSBKStein.setText("15 Stein");
+      jSBKHolz.setVisible(true);
+      jSBKHolz.setText( "35 Holz");
+      jSBKWeizen.setVisible(true);
+      jSBKWeizen.setText("5 Weizen");
+      jSBGebaut.setVisible(true);
+      jSBGebaut.setText(Bcnt + " gebaut");
+      lVorraussetzungen.setVisible(true);
+      jReq.setVisible(true);
+      jReq.setText("50 Einwohner");
+      
     }
   } // end of bBarrack_ActionPerformed
   
@@ -469,6 +579,22 @@ public class BaseP extends JFrame {
       bslc = 2;
       brst();
       bLumber.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jSBName.setText("Holzfäller");
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKGold.setText("10 Gold");
+      jSBKStein.setVisible(true);
+      jSBKStein.setText("0 Stein");
+      jSBKHolz.setVisible(true);
+      jSBKHolz.setText( "0 Holz");
+      jSBKWeizen.setVisible(true);
+      jSBKWeizen.setText("0 Weizen");
+      jSBGebaut.setVisible(true);
+      jSBGebaut.setText(Lcnt + " gebaut");
+      lVorraussetzungen.setVisible(true);
+      jReq.setVisible(true);
+      jReq.setText("keine");;
       }
   } // end of bLumber_ActionPerformed
   
@@ -482,6 +608,22 @@ public class BaseP extends JFrame {
       bslc = 3;
       brst();
       bFarm.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jSBName.setText("Farm");
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKGold.setText("10 Gold");
+      jSBKStein.setVisible(true);
+      jSBKStein.setText("0 Stein");
+      jSBKHolz.setVisible(true);
+      jSBKHolz.setText( "5 Holz");
+      jSBKWeizen.setVisible(true);
+      jSBKWeizen.setText("0 Weizen");
+      jSBGebaut.setVisible(true);
+      jSBGebaut.setText(Fcnt + " gebaut");
+      lVorraussetzungen.setVisible(true);
+      jReq.setVisible(true);
+      jReq.setText("keine");
     }
   } // end of bFarm_ActionPerformed
   
@@ -495,6 +637,22 @@ public class BaseP extends JFrame {
       bslc = 4;
       brst();
       bTown.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jSBName.setText("Stadt");
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKGold.setText("50 Gold");
+      jSBKStein.setVisible(true);
+      jSBKStein.setText("20 Stein");
+      jSBKHolz.setVisible(true);
+      jSBKHolz.setText( "30 Holz");
+      jSBKWeizen.setVisible(true);
+      jSBKWeizen.setText("5 Weizen");
+      jSBGebaut.setVisible(true);
+      jSBGebaut.setText(Tcnt + " gebaut");
+      lVorraussetzungen.setVisible(true);
+      jReq.setVisible(true);
+      jReq.setText("keine");
     }
   } // end of bTown_ActionPerformed
 
@@ -508,6 +666,22 @@ public class BaseP extends JFrame {
       bslc = 5;
       brst();
       bVillage.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jSBName.setText("Dorf");
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKGold.setText("20 Gold");
+      jSBKStein.setVisible(true);
+      jSBKStein.setText("0 Stein");
+      jSBKHolz.setVisible(true);
+      jSBKHolz.setText( "15 Holz");
+      jSBKWeizen.setVisible(true);
+      jSBKWeizen.setText("5 Weizen");
+      jSBGebaut.setVisible(true);
+      jSBGebaut.setText(Vcnt + " gebaut");
+      lVorraussetzungen.setVisible(true);
+      jReq.setVisible(true);
+      jReq.setText("keine");
     }
   } // end of bVillage_ActionPerformed
 
@@ -521,8 +695,29 @@ public class BaseP extends JFrame {
       bslc = 6;
       brst();
       bMine.setBackground(Color.GREEN);
+      jSBName.setVisible(true);
+      jSBName.setText("Mine");
+      jBaukosten.setVisible(true);
+      jSBKGold.setVisible(true);
+      jSBKGold.setText("20 Gold");
+      jSBKStein.setVisible(true);
+      jSBKStein.setText("0 Stein");
+      jSBKHolz.setVisible(true);
+      jSBKHolz.setText( "30 Holz");
+      jSBKWeizen.setVisible(true);
+      jSBKWeizen.setText("0 Weizen");
+      jSBGebaut.setVisible(true);
+      jSBGebaut.setText(Mcnt + " gebaut");
+      lVorraussetzungen.setVisible(true);
+      jReq.setVisible(true);
+      jReq.setText("keine");
     }
   } // end of bMine_ActionPerformed
+  public void bBeenden_ActionPerformed(ActionEvent evt) {
+    // TODO add your code here
+    System.exit(1);
+  } // end of bBeenden_ActionPerformed
+
   // end methods
   
 } // end of class BaseP
